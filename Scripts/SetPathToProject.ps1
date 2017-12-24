@@ -25,7 +25,7 @@ if (Test-Path "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.
     Write-Output "Command not found: ildasm"
     return
 }
-$metadataVersion = (&$ildasm /text /noil /metadata=MDHEADER $pluginCoreDllPath `
+$metadataVersion = (&$ildasm /text /noil /metadata=MDHEADER $pluginCoreDllAbsPath `
     | Select-String "Metadata section: ").Line.Split(" ")[-1]
 $targetFrameworkVersion = ""
 if ($metadataVersion.StartsWith("v2.0.50727")) {
