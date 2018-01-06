@@ -27,7 +27,9 @@ A FlashDevelop plugin that provides Emacs like key bindings.
 | Ctrl-r          | isearch-backward       |
 
 ## Download
-[Latest Build for FlashDevelop 5.2.0 / .NET Framework 3.5 - AppVeyor](https://ci.appveyor.com/api/projects/lpubsppop01/emacslikekeybindingsfdplugin/artifacts/lpubsppop01.EmacsLikeKeyBindingsFDPlugin.fdz)
+- [Latest Build for FlashDevelop 5.2.0 / .NET Framework 3.5 - AppVeyor](https://ci.appveyor.com/api/projects/lpubsppop01/emacslikekeybindingsfdplugin/artifacts/lpubsppop01.EmacsLikeKeyBindingsFDPlugin_FD-5.2.0.fdz?job=Environment%3A%20FLASH_DEVELOP_SDK_VERSION%3D5.2.0)
+- [Latest Build for FlashDevelop 5.3.0 / .NET Framework 4 - AppVeyor](https://ci.appveyor.com/api/projects/lpubsppop01/emacslikekeybindingsfdplugin/artifacts/lpubsppop01.EmacsLikeKeyBindingsFDPlugin_FD-5.3.0.fdz?job=Environment%3A%20FLASH_DEVELOP_SDK_VERSION%3D5.3.0)
+
 
 ## Author
 [lpubsppop01](https://github.com/lpubsppop01)
