@@ -26,6 +26,10 @@ A FlashDevelop plugin that provides Emacs like key bindings.
 | Ctrl-s          | isearch-forward        |
 | Ctrl-r          | isearch-backward       |
 
+Notes:
+- Not support kill-ring
+- Yank replace a region
+
 ## Download
 - [Latest Build for FlashDevelop 5.2.0 / .NET Framework 3.5 - AppVeyor](https://ci.appveyor.com/api/projects/lpubsppop01/emacslikekeybindingsfdplugin/artifacts/lpubsppop01.EmacsLikeKeyBindingsFDPlugin.fdz?job=Environment%3A%20FLASH_DEVELOP_VERSION%3D5.2.0)
 - [Latest Build for FlashDevelop 5.3.0 / .NET Framework 4 - AppVeyor](https://ci.appveyor.com/api/projects/lpubsppop01/emacslikekeybindingsfdplugin/artifacts/lpubsppop01.EmacsLikeKeyBindingsFDPlugin.fdz?job=Environment%3A%20FLASH_DEVELOP_VERSION%3D5.3.0)
