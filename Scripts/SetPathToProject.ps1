@@ -5,10 +5,10 @@ $outputDirPath = ""
 $pluginCoreDllPath = ""
 $pluginCoreDllAbsPath = ""
 $fdExePath = ""
-if ($env:FLASH_DEVELOP_SDK_VERSION -ne $null) {
+if ($env:FLASH_DEVELOP_VERSION -ne $null) {
     $outputDirPath = '$(SolutionDir)bin'
-    $pluginCoreDllPath = "..\SDK\FlashDevelop-${env:FLASH_DEVELOP_SDK_VERSION}\PluginCore.dll"
-    $pluginCoreDllAbsPath = Join-Path $PSScriptRoot "..\SDK\FlashDevelop-${env:FLASH_DEVELOP_SDK_VERSION}\PluginCore.dll"
+    $pluginCoreDllPath = "..\SDK\FlashDevelop-${env:FLASH_DEVELOP_VERSION}\PluginCore.dll"
+    $pluginCoreDllAbsPath = Join-Path $PSScriptRoot "..\SDK\FlashDevelop-${env:FLASH_DEVELOP_VERSION}\PluginCore.dll"
 } elseif ($env:FLASH_DEVELOP_APP_ROOT -ne $null) {
     $outputDirPath = Join-Path $env:FLASH_DEVELOP_APP_ROOT "Plugins"
     $pluginCoreDllPath = $pluginCoreDllAbsPath = Join-Path $env:FLASH_DEVELOP_APP_ROOT "PluginCore.dll"

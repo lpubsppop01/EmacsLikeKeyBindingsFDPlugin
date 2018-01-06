@@ -17,13 +17,7 @@ if (!(Test-Path -LiteralPath $workPluginsDirPath)) {
 
 Copy-Item (Join-Path $srcBinDirPath "lpubsppop01.EmacsLikeKeyBindingsFDPlugin.dll") $workPluginsDirPath
 
-$archiveFilename = ""
-if ($env:FLASH_DEVELOP_SDK_VERSION -ne $null) {
-    $archiveFilename = "lpubsppop01.EmacsLikeKeyBindingsFDPlugin_FD-${env:FLASH_DEVELOP_SDK_VERSION}.fdz"
-} else {
-    $archiveFilename = "lpubsppop01.EmacsLikeKeyBindingsFDPlugin.fdz"
-}
-
+$archiveFilename = "lpubsppop01.EmacsLikeKeyBindingsFDPlugin.fdz"
 $archiveFilePath = Join-Path $solutionDirPath $archiveFilename
 if (Test-Path -LiteralPath $archiveFilePath) {
     Remove-Item $archiveFilePath
