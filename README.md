@@ -23,6 +23,8 @@ A FlashDevelop plugin that provides Emacs like key bindings.
 | Ctrl-/          | undo                   |
 | Alt-/           | dabbrev-expand         |
 | Ctrl-x Ctrl-f   | find-file              |
+| Ctrl-s          | isearch-forward        |
+| Ctrl-r          | isearch-backward       |
 
 ## Download
 [Latest Build for FlashDevelop 5.2.0 / .NET Framework 3.5 - AppVeyor](https://ci.appveyor.com/api/projects/lpubsppop01/emacslikekeybindingsfdplugin/artifacts/lpubsppop01.EmacsLikeKeyBindingsFDPlugin.fdz)

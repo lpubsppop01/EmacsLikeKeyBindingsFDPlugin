@@ -25,6 +25,8 @@ namespace lpubsppop01.EmacsLikeKeyBindingsFDPlugin
         Ctrl_Slash,
         Alt_Slash,
         Ctrl_x_Ctrl_f,
+        Ctrl_s,
+        Ctrl_r,
     }
 
     static class EmacsKeysExtension
@@ -50,6 +52,8 @@ namespace lpubsppop01.EmacsLikeKeyBindingsFDPlugin
                 case EmacsKeys.Ctrl_Slash: return new[] { Keys.Oem2 | Keys.Control };
                 case EmacsKeys.Alt_Slash: return new[] { Keys.Oem2 | Keys.Alt };
                 case EmacsKeys.Ctrl_x_Ctrl_f: return new[] { Keys.X | Keys.Control, Keys.F | Keys.Control };
+                case EmacsKeys.Ctrl_s: return new[] { Keys.S | Keys.Control };
+                case EmacsKeys.Ctrl_r: return new[] { Keys.R | Keys.Control };
             }
             return null;
         }

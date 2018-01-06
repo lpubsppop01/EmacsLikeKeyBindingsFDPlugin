@@ -27,6 +27,16 @@ namespace lpubsppop01.EmacsLikeKeyBindingsFDPlugin
             }
         }
 
+        bool QuickFindIsFocus
+        {
+            get
+            {
+                var quickFind = PluginBase.MainForm.GetQuickFind();
+                if (quickFind == null) return false;
+                return quickFind.ContainsFocus;
+            }
+        }
+
         #endregion
 
         #region IPlugin Members
@@ -111,7 +121,7 @@ namespace lpubsppop01.EmacsLikeKeyBindingsFDPlugin
 
         void HandleKeys(object sender, KeyEvent e)
         {
-            if (!SciControlIsFocus) return;
+            if (!SciControlIsFocus && !QuickFindIsFocus) return;
             if (isTempDisabled) return;
 
             KeymapValue value;
@@ -230,6 +240,8 @@ namespace lpubsppop01.EmacsLikeKeyBindingsFDPlugin
             yield return new KeyBinding(EmacsKeys.Ctrl_g, new KeymapValue(s => KeyboardQuit(s)));
             yield return new KeyBinding(EmacsKeys.Alt_Slash, new KeymapValue(s => DabbrevExpand(s)));
             yield return new KeyBinding(EmacsKeys.Ctrl_x_Ctrl_f, new KeymapValue(s => FindFile(s)));
+            yield return new KeyBinding(EmacsKeys.Ctrl_s, new KeymapValue(s => ISearchForward(s)));
+            yield return new KeyBinding(EmacsKeys.Ctrl_r, new KeymapValue(s => ISearchBackward(s)));
         }
 
         IEnumerable<Keys> EnumerateEnabledKeys(Dictionary<Keys, KeymapValue> dict)
@@ -381,6 +393,15 @@ namespace lpubsppop01.EmacsLikeKeyBindingsFDPlugin
 
         void KeyboardQuit(object sender)
         {
+            var quickFind = PluginBase.MainForm.GetQuickFind();
+            if (quickFind != null && quickFind.ContainsFocus)
+            {
+                PluginBase.MainForm.SetFindText(null, "");
+                quickFind.Hide();
+                SciControl.Focus();
+                return;
+            }
+
             ClearKilledTextBuffer();
             marked = false;
             if (SciControl.SelectionStart != SciControl.SelectionEnd)
@@ -407,6 +428,34 @@ namespace lpubsppop01.EmacsLikeKeyBindingsFDPlugin
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 PluginBase.MainForm.OpenEditableDocument(dialog.FileName);
+            }
+        }
+
+        void ISearchForward(object sender)
+        {
+            ClearKilledTextBuffer();
+            marked = false;
+            if (QuickFindIsFocus)
+            {
+                PluginBase.MainForm.FindNext(sender, EventArgs.Empty);
+            }
+            else
+            {
+                PluginBase.MainForm.ShowQuickFind(sender, EventArgs.Empty);
+            }
+        }
+
+        void ISearchBackward(object sender)
+        {
+            ClearKilledTextBuffer();
+            marked = false;
+            if (QuickFindIsFocus)
+            {
+                PluginBase.MainForm.FindPrevious(sender, EventArgs.Empty);
+            }
+            else
+            {
+                PluginBase.MainForm.ShowQuickFind(sender, EventArgs.Empty);
             }
         }
 
